@@ -17,23 +17,33 @@
 <body>
 <div data-role="page" id="page3">
     <div data-role="header" data-position="fixed">
-        <h1>Page 3</h1>
+        <h1>Personalized</h1>
     </div>
     <div data-role="main" class="ui-content">
-        <h1></h1>
+        <div id="heightFieldContain" class="ui-field-contain inputSize">
+        <label for="heightInput" class="ui-hidden-accessible">Height:</label><input placeholder="Height" type="number" name="heightInput" id="heightInput" data-clear-btn="true"/>
+        </div>
+        <div class="ui-field-contain inputSize">
+        <label for="weightInput" class="ui-hidden-accessible">Weight:</label><input placeholder="Weight" type="number" name="heightInput" id="weightInput"  data-clear-btn="true"/>
+        </div>
+        <div class="ui-field-contain inputSize">
+        <label for="bicepInput" class="ui-hidden-accessible">Biceps:</label> <input placeholder="Biceps" type="number" name="heightInput" id="bicepInput"  data-clear-btn="true"/>
+        </div>
+        <div class="ui-field-contain inputSize">
+        <label for="shoulderInput" class="ui-hidden-accessible">Shoulder:</label> <input placeholder="Shoulder" type="number" name="heightInput" id="shoulderInput"  data-clear-btn="true"/>
+        </div>
     </div>
     <div data-role="footer" data-position="fixed">
-
         <div data-role="navbar">
             <ul>
                 <li>
-                    <a href="#" data-icon="home" data-transition="slide" onclick="goTo('home.html')">Home</a>
+                    <a href="home.html" data-icon="home" data-transition="slide" >Home</a>
                 </li>
                 <li>
-                    <a href="#" data-icon="grid" data-transition="slide" onclick="goTo('contact.html')">Page 2</a>
+                    <a href="contact.html" data-icon="grid" data-transition="slide" >Page 2</a>
                 </li>
                 <li>
-                    <a href="#" data-icon="user" data-transition="slide" onclick="goTo('tools.html')">Page 3</a>
+                    <a href="tools.html" data-icon="user" data-transition="slide" >Page 3</a>
                 </li>
             </ul>
         </div>
@@ -41,8 +51,12 @@
 </div>
 </body>
 </html>
-
-
+<style type="text/css">
+    .inputSize .ui-input-text
+    {
+        width: 15px !important;
+    }
+</style>
 <script type="text/javascript">
     function goTo(url){
         window.location = url;

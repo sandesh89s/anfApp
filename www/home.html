@@ -12,6 +12,7 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/home.js" type="application/javascript"></script>
     <!--<script type="text/javascript" src="js/index.js"></script>-->
 </head>
 <body id="page_body">
@@ -21,12 +22,12 @@
     </div>
     <div data-role="main" class="ui-content">
         <ul data-role="listview" data-inset="true">
-            <li><a href="javascript: create_page('chest page','chest');" data-transition="slide">
+            <li><a href="javascript: create_page('chest_page','chest');" data-transition="slide">
                 <img src="">
                 <h2>Chest</h2>
                 <p>Enter to see the list of exercises</p></a>
             </li>
-            <li><a href="javascript: create_page('chest page','shoulder');">
+            <li><a href="javascript: create_page('shoulder_page','shoulder');">
                 <img src="">
                 <h2>Shoulder</h2>
                 <p>Enter to see the list of exercises</p></a>
@@ -71,143 +72,10 @@
         </div>
     </div>
 </div>
-<!--<div data-role="page" id="page2">-->
-    <!--<div data-role="header" data-position="fixed">-->
-        <!--<h1>Hello 2</h1>-->
-    <!--</div>-->
-    <!--<div data-role="main" class="ui-content">-->
-        <!--<h1>Hello Main</h1>-->
-    <!--</div>-->
-    <!--<div data-role="footer" data-position="fixed">-->
-
-        <!--<div data-role="navbar">-->
-            <!--<ul>-->
-                <!--<li>-->
-                    <!--<a href="#page1" data-icon="grid" data-transition="slide" >Page 1</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a href="#page2" data-icon="grid" data-transition="slide" >Page 2</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a href="#page3" data-icon="grid" data-transition="slide" >Page 3</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-
-<!--<div data-role="page" id="page3">-->
-    <!--<div data-role="header" data-position="fixed">-->
-        <!--<h1>Hello 3</h1>-->
-    <!--</div>-->
-    <!--<div data-role="main" class="ui-content">-->
-        <!--<h1>Hello Main</h1>-->
-    <!--</div>-->
-    <!--<div data-role="footer" data-position="fixed">-->
-
-        <!--<div data-role="navbar">-->
-            <!--<ul>-->
-                <!--<li>-->
-                    <!--<a href="#page1" data-icon="grid" data-transition="slide" >Page 1</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a href="#page2" data-icon="grid" data-transition="slide" >Page 2</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a href="#page3" data-icon="grid" data-transition="slide" >Page 3</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-
-
 </body>
 </html>
 
-<script>
-    $(document).ready(function() {
 
-        //check if hash exists and that it is not for the home screen
-        if (window.location.hash != '' && window.location.hash != '#page1') {
-
-            //set whatever content you want to put into the new page
-            var content_string = 'Some ' + window.location.hash + ' text...<br><br><a href="#page1">go to home screen</a>';
-
-            //append the new page onto the end of the body
-            $('#page_body').append('<div data-role="page" id="' + window.location.hash.replace('#','') + '"><div data-role="header" data-position="fixed"  data-add-back-btn="true">Chest</div><div data-role="content">' + content_string + '</div></div>');
-
-            //add a link on the home screen to navaigate to the new page (just so nav isn't broken if user goes from new page to home screen)
-            $('#page1 div[data-role="content"]').append('<br><br><a href="#' + window.location.hash.replace('#','') + '">go to ' + window.location.hash.replace('#','') + ' page</a>');
-        }
-    });
-    function create_page(page_id,part) {
-
-        //set whatever content you want to put into the new page
-        var string = 'FOO BAR page...<br><br><a href="#page1">return to home screen</a>';
-        if(part.match('chest')) {
-            var string1 = ' <ul data-role="listview" data-inset="true">' +
-                    '<li><a href="" data-transition="slide">' +
-                    ' <img src="">' +
-                    ' <h2>Chest Press</h2>' +
-                    ' <p>Enter to see the description</p></a>' +
-                    ' </li></ul>';
-        }else if(part.match('shoulder')) {
-            var string1 = ' <ul data-role="listview" data-inset="true">' +
-                    '<li><a href="" data-transition="slide">' +
-                    ' <img src="">' +
-                    ' <h2>Shoulder Press</h2>' +
-                    ' <p>Enter to see the description</p></a>' +
-                    ' </li></ul>';
-        }else if(part.match('biceps')) {
-            var string1 = ' <ul data-role="listview" data-inset="true">' +
-                    '<li><a href="" data-transition="slide">' +
-                    ' <img src="">' +
-                    ' <h2>Arm Curl</h2>' +
-                    ' <p>Enter to see the description</p></a>' +
-                    ' </li></ul>';
-        }else if(part.match('triceps')) {
-            var string1 = ' <ul data-role="listview" data-inset="true">' +
-                    '<li><a href="" data-transition="slide">' +
-                    ' <img src="">' +
-                    ' <h2>Pull down</h2>' +
-                    ' <p>Enter to see the description</p></a>' +
-                    ' </li></ul>';
-        }else if(part.match('back')) {
-            var string1 = ' <ul data-role="listview" data-inset="true">' +
-                    '<li><a href="" data-transition="slide">' +
-                    ' <img src="">' +
-                    ' <h2>Extention</h2>' +
-                    ' <p>Enter to see the description</p></a>' +
-                    ' </li></ul>';
-        }else if(part.match('legs')) {
-            var string1 = ' <ul data-role="listview" data-inset="true">' +
-                    '<li><a href="" data-transition="slide">' +
-                    ' <img src="">' +
-                    ' <h2>Leg </h2>' +
-                    ' <p>Enter to see the description</p></a>' +
-                    ' </li></ul>';
-        }
-         //append the new page onto the end of the body
-        $('#page_body').append('<div data-role="page" id="' + page_id + '"><div data-role="header"  data-add-back-btn="true">Chest</div><div data-role="content">' + string1 + '</div></div>');
-
-        //initialize the new page
-        $.mobile.initializePage();
-
-        //navigate to the new page
-        $.mobile.changePage("#" + page_id,{
-            transition: "slide"
-        });
-
-        //add a link on the home screen to navaigate to the new page (just so nav isn't broken if user goes from new page to home screen)
-        $('#page1 div[data-role="content"]').append('<br><br><a href="#' + page_id + '">go to ' + page_id + ' page</a>');
-
-        //refresh the home screen so new link is given proper css
-        $('#page1 div[data-role="content"]').page();
-    }
-</script>
 <script type="text/javascript">
     function goTo(url){
         window.location = url;
